@@ -3,12 +3,12 @@ import { LoadedComponent } from "./LoadedComponent";
 
 import "./menu.css";
 
-export const MenuComponent = () => {
+export const MenuComponent = ({ dispatch }) => {
   return (
     <div className="menu-container">
       <div>
         <h2 className="menu-title">Меню</h2>
-        <ButtonsComponent />
+        <ButtonsComponent dispatch={dispatch} />
       </div>
 
       <LoadedComponent />

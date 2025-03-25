@@ -1,15 +1,6 @@
 import { ElementComponent } from "./ElementComponent";
 
-const mockUrls = [
-  { name: "sdfsdfsdfsdf", url: "sdfsdfsdfsdfsd" },
-  { name: "sdfsdfsdfsdf", url: "sdfsdfsdfsdfsd" },
-  { name: "sdfsdfsdfsdf", url: "sdfsdfsdfsdfsd" },
-  { name: "sdfsdfsdfsdf", url: "sdfsdfsdfsdfsd" },
-  { name: "sdfsdfsdfsdf", url: "sdfsdfsdfsdfsd" },
-  { name: "sdfsdfsdfsdf", url: "sdfsdfsdfsdfsd" },
-];
-
-export const ElementsContainerComponent = ({ urls = mockUrls }) => {
+export const ElementsContainerComponent = ({ urls }) => {
   return (
     <ul className="list">
       {urls.map((url, i) => (
