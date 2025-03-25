@@ -21,6 +21,7 @@ export const ButtonsComponent = ({ dispatch }) => {
     reader.onload = (e) => {
       const content = e.target.result;
 
+      inputFileRef.current.value = "";
       dispatch({
         type: actions.changeUrlsArray,
         payload: parseFileContent(content),

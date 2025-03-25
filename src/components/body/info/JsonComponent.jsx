@@ -1,3 +1,7 @@
-export const JsonComponent = () => {
-  return <div className="json-container"></div>;
+export const JsonComponent = ({ loadedJSON }) => {
+  return (
+    <div className="json-container">
+      <pre>{JSON.stringify(loadedJSON, null, 2)}</pre>
+    </div>
+  );
 };

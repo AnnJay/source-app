@@ -19,7 +19,7 @@ export const MainComponent = () => {
   return (
     <div className="main-container">
       <MenuComponent dispatch={dispatch} />
-      <BodyComponent appState={appState} />
+      <BodyComponent appState={appState} dispatch={dispatch} />
     </div>
   );
 };

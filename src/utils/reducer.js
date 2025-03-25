@@ -8,12 +8,14 @@ export const actions = {
   changeUrlsArray: "changeUrlsArray",
   saveUrlsInLocalStorage: "saveUrlsInLocalStorage",
   fetchUrlsFromLocalStorage: "fetchUrlsFromLocalStorage",
+  startLoading: "startLoading",
+  changeLoadedJSON: "changeLoadedJSON",
 };
 
 export const reducer = (state, action) => {
   switch (action.type) {
     case actions.changeCurrentURL_ID:
-      return { ...state, currentURL_ID: action.payload.id };
+      return { ...state, currentURL_ID: action.payload };
 
     case actions.changeUrlsArray:
       return { ...state, urls: action.payload, currentURL_ID: -1 };
@@ -31,17 +33,17 @@ export const reducer = (state, action) => {
         currentURL_ID: -1,
       };
 
+    case actions.startLoading:
+      return { ...state, statusLoadedJSON: false };
+
+    case actions.changeLoadedJSON:
+      return { ...state, loadedJSON: action.payload, statusLoadedJSON: true };
+
     default:
       return state;
   }
 };
 
-// выбрать текущий урл +++
-// назначить значение urls полностью +++
 // удалить источник
 // добавить источник
 // изменить источник
-//
-//
-//
-//
