@@ -1,11 +1,14 @@
 :root {
   --color-bg: #313e62;
+  --color-bg-light: #ffffff;
   --color-bg-secondary: #9ca3af;
   --color-container-bg: #0e0c15;
 
   --color-input-bg: #121825;
   --color-input-border: #313e62;
   --color-input-border-focus: #4285f4;
+
+  --color-border-dark: #000000;
 
   --color-text-primary: #ffffff;
   --color-text-secondary: #9ca3af;
@@ -82,21 +85,21 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  background: var(--color-bg-secondary);
   border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #a0a0a0;
+  background: var(--color-bg);
   border-radius: 5px;
-  border: 2px solid #f1f1f1;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #808080;
+  border: 2px solid var(--color-text-dark);
 }
 
 * {
   scrollbar-width: thin;
   scrollbar-color: #a0a0a0 #f1f1f1;
+}
+
+.hidden {
+  display: none;
 }
