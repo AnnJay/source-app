@@ -7,5 +7,5 @@ export const getUrlsFromLocalStorage = () => {
 };
 
 export const saveUrlsInLocalStorage = (urlsArray) => {
-  const data = localStorage.setItem(URLS_ARRAY_KEY, JSON.stringify(urlsArray));
+  localStorage.setItem(URLS_ARRAY_KEY, JSON.stringify(urlsArray));
 };
