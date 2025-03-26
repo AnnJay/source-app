@@ -1,3 +1,4 @@
+import { countRowsAndColumns } from "./count";
 import {
   getUrlsFromLocalStorage,
   saveUrlsInLocalStorage,
@@ -5,11 +6,12 @@ import {
 
 export const actions = {
   changeCurrentURL_ID: "changeCurrentURL_ID",
-  changeUrlsArray: "changeUrlsArray",
-  saveUrlsInLocalStorage: "saveUrlsInLocalStorage",
-  fetchUrlsFromLocalStorage: "fetchUrlsFromLocalStorage",
-  startLoading: "startLoading",
   changeLoadedJSON: "changeLoadedJSON",
+  changeUrlsArray: "changeUrlsArray",
+  countRowsAndColumns: "countRowsAndColumns",
+  fetchUrlsFromLocalStorage: "fetchUrlsFromLocalStorage",
+  saveUrlsInLocalStorage: "saveUrlsInLocalStorage",
+  startLoading: "startLoading",
 };
 
 export const reducer = (state, action) => {
@@ -34,10 +36,29 @@ export const reducer = (state, action) => {
       };
 
     case actions.startLoading:
-      return { ...state, statusLoadedJSON: false, loadedJSON: {} };
+      return {
+        ...state,
+        statusLoadedJSON: false,
+        loadedJSON: {},
+        countRows: 0,
+        countColumns: 0,
+      };
 
     case actions.changeLoadedJSON:
       return { ...state, loadedJSON: action.payload, statusLoadedJSON: true };
+
+    case actions.countRowsAndColumns:
+      if (state.currentURL_ID < 0) return state;
+
+      const countData = countRowsAndColumns(state.loadedJSON);
+
+      if (!countData) return state;
+
+      return {
+        ...state,
+        countRows: countData.rows,
+        countColumns: countData.columns,
+      };
 
     default:
       return state;
@@ -47,4 +68,3 @@ export const reducer = (state, action) => {
 // удалить источник
 // добавить источник
 // изменить источник
-// подсчитать ряды и колонки

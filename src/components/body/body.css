@@ -91,7 +91,8 @@
   background: var(--color-bg-secondary);
   border: none;
   border-radius: 5px;
-  width: 150px;
+  padding-left: 15px;
+  width: 80px;
 }
 
 .json-container {

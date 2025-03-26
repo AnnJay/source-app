@@ -48,7 +48,12 @@ export const ButtonsComponent = ({ dispatch }) => {
       >
         Сохранить
       </button>
-      <button className="button">Рассчитать</button>
+      <button
+        className="button"
+        onClick={() => dispatch({ type: actions.countRowsAndColumns })}
+      >
+        Рассчитать
+      </button>
 
       <input
         type="file"

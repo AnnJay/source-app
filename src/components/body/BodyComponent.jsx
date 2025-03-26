@@ -34,7 +34,11 @@ export const BodyComponent = ({ appState, dispatch }) => {
         currentUrlId={appState.currentURL_ID}
       />
 
-      <InfoComponent loadedJSON={appState.loadedJSON} />
+      <InfoComponent
+        loadedJSON={appState.loadedJSON}
+        countRows={appState.countRows}
+        countColumns={appState.countColumns}
+      />
     </div>
   );
 };
