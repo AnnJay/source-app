@@ -33,7 +33,7 @@
 
 .button {
   width: 100%;
-  padding: 10px 20px;
+  padding: 10px;
   margin-bottom: 10px;
 
   font-family: "Roboto", sans-serif;
@@ -72,6 +72,14 @@
 
 .text-dark {
   color: var(--color-text-dark);
+}
+
+.text-bold {
+  font-weight: 600;
+}
+
+.text-primary {
+  color: var(--color-text-primary);
 }
 
 .main-container {

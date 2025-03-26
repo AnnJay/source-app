@@ -58,6 +58,7 @@ export const ButtonsComponent = ({ dispatch }) => {
       <input
         type="file"
         className="hidden"
+        accept=".txt, .text, text/plain, application/text"
         onChange={handleFileUpload}
         ref={inputFileRef}
       />

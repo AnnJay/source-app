@@ -12,6 +12,17 @@ export const actions = {
   fetchUrlsFromLocalStorage: "fetchUrlsFromLocalStorage",
   saveUrlsInLocalStorage: "saveUrlsInLocalStorage",
   startLoading: "startLoading",
+  addSource: "addSource",
+  updateSource: "updateSource",
+  deleteSource: "deleteSource",
+};
+
+const emptyFields = {
+  currentURL_ID: -1,
+  statusLoadedJSON: false,
+  loadedJSON: {},
+  countRows: 0,
+  countColumns: 0,
 };
 
 export const reducer = (state, action) => {
@@ -20,7 +31,7 @@ export const reducer = (state, action) => {
       return { ...state, currentURL_ID: action.payload };
 
     case actions.changeUrlsArray:
-      return { ...state, urls: action.payload, currentURL_ID: -1 };
+      return { ...state, urls: action.payload, ...emptyFields };
 
     case actions.saveUrlsInLocalStorage:
       saveUrlsInLocalStorage(state.urls);
@@ -32,7 +43,7 @@ export const reducer = (state, action) => {
       return {
         ...state,
         urls: fetchedUrls ? fetchedUrls : [],
-        currentURL_ID: -1,
+        ...emptyFields,
       };
 
     case actions.startLoading:
@@ -60,11 +71,26 @@ export const reducer = (state, action) => {
         countColumns: countData.columns,
       };
 
+    case actions.addSource:
+      return { ...state, urls: [...state.urls, action.payload] };
+
+    case actions.updateSource:
+      const copyUrls = [...state.urls];
+      copyUrls[action.payload.index] = action.payload.updatedUrl;
+      return { ...state, urls: copyUrls };
+
+    case actions.deleteSource:
+      const filteredUrls = state.urls.filter(
+        (_, i) => i !== action.payload.index
+      );
+
+      return {
+        ...state,
+        urls: filteredUrls,
+        ...emptyFields,
+      };
+
     default:
       return state;
   }
 };
-
-// удалить источник
-// добавить источник
-// изменить источник
