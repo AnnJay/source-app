@@ -13,7 +13,11 @@ export const ListComponent = ({ urls, dispatch, currentUrlId }) => {
         currentUrlId={currentUrlId}
       />
 
-      <UrlButtons />
+      <UrlButtons
+        dispatch={dispatch}
+        currentUrl={urls[currentUrlId]}
+        currentUrlId={currentUrlId}
+      />
     </div>
   );
 };

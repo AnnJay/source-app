@@ -63,7 +63,11 @@
 }
 
 .button:hover {
-  color: var(--color-text-secondary);
+  color: var(--color-text-dark);
+}
+
+.button:disabled {
+  cursor: not-allowed;
 }
 
 .text-dark {
