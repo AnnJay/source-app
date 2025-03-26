@@ -3,7 +3,7 @@ import { LoadedComponent } from "./LoadedComponent";
 
 import "./menu.css";
 
-export const MenuComponent = ({ dispatch }) => {
+export const MenuComponent = ({ dispatch, statusLoadedJSON }) => {
   return (
     <div className="menu-container">
       <div>
@@ -11,7 +11,7 @@ export const MenuComponent = ({ dispatch }) => {
         <ButtonsComponent dispatch={dispatch} />
       </div>
 
-      <LoadedComponent />
+      <LoadedComponent statusLoadedJSON={statusLoadedJSON} />
     </div>
   );
 };

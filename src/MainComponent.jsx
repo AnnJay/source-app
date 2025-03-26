@@ -18,7 +18,10 @@ export const MainComponent = () => {
 
   return (
     <div className="main-container">
-      <MenuComponent dispatch={dispatch} />
+      <MenuComponent
+        dispatch={dispatch}
+        statusLoadedJSON={appState.statusLoadedJSON}
+      />
       <BodyComponent appState={appState} dispatch={dispatch} />
     </div>
   );

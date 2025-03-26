@@ -34,7 +34,7 @@ export const reducer = (state, action) => {
       };
 
     case actions.startLoading:
-      return { ...state, statusLoadedJSON: false };
+      return { ...state, statusLoadedJSON: false, loadedJSON: {} };
 
     case actions.changeLoadedJSON:
       return { ...state, loadedJSON: action.payload, statusLoadedJSON: true };
@@ -47,3 +47,4 @@ export const reducer = (state, action) => {
 // удалить источник
 // добавить источник
 // изменить источник
+// подсчитать ряды и колонки

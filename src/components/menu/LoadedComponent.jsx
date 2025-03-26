@@ -1,3 +1,7 @@
-export const LoadedComponent = () => {
-  return <div className="loader-container">Данные загружены</div>;
+export const LoadedComponent = ({ statusLoadedJSON }) => {
+  return (
+    <div className="loader-container">
+      {statusLoadedJSON ? "Данные загружены" : ""}
+    </div>
+  );
 };

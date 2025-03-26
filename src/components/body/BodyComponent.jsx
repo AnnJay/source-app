@@ -11,7 +11,7 @@ export const BodyComponent = ({ appState, dispatch }) => {
     if (appState.currentURL_ID >= 0) {
       const url = appState.urls[appState.currentURL_ID].url;
 
-      dispatch(actions.startLoading);
+      dispatch({ type: actions.startLoading });
 
       fetch(url)
         .then((response) => {

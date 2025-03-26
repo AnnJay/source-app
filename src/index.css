@@ -4,6 +4,9 @@
   --color-bg-secondary: #9ca3af;
   --color-container-bg: #0e0c15;
 
+  --color-list-item-selected: #38a95a;
+  --color-list-item-hovered: #749f81;
+
   --color-input-bg: #121825;
   --color-input-border: #313e62;
   --color-input-border-focus: #4285f4;
