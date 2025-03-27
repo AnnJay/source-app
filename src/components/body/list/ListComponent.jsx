@@ -2,22 +2,14 @@ import { ElementsContainerComponent } from "./ElementsContainerComponent";
 import { UrlButtons } from "./UrlButtons";
 import { UrlComponent } from "./UrlComponent";
 
-export const ListComponent = ({ urls, dispatch, currentUrlId }) => {
+export const ListComponent = () => {
   return (
     <div className="h-50">
-      <UrlComponent urlItem={urls[currentUrlId]} />
+      <UrlComponent />
 
-      <ElementsContainerComponent
-        urls={urls}
-        dispatch={dispatch}
-        currentUrlId={currentUrlId}
-      />
+      <ElementsContainerComponent />
 
-      <UrlButtons
-        dispatch={dispatch}
-        currentUrl={urls[currentUrlId]}
-        currentUrlId={currentUrlId}
-      />
+      <UrlButtons />
     </div>
   );
 };

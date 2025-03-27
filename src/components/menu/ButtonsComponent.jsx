@@ -1,10 +1,21 @@
 import { useRef } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
 import { parseFileContent } from "../../utils/parseFileContent";
-import { actions } from "../../utils/reducer";
+import { countRowsAndColumns } from "../../utils/count";
+import { setUrls } from "../../state/reducers/urlsSlice";
+import { clearJson, count } from "../../state/reducers/jsonSlice";
+import {
+  getUrlsFromLocalStorage,
+  saveUrlsInLocalStorage,
+} from "../../utils/localStorage";
 
-export const ButtonsComponent = ({ dispatch }) => {
+export const ButtonsComponent = () => {
   const inputFileRef = useRef();
+
+  const { urls } = useSelector((state) => state.urls);
+  const { loadedJSON } = useSelector((state) => state.json);
+  const dispatch = useDispatch();
 
   const handleFileUpload = async (event) => {
     const { files } = event.target;
@@ -22,13 +33,16 @@ export const ButtonsComponent = ({ dispatch }) => {
       const content = e.target.result;
 
       inputFileRef.current.value = "";
-      dispatch({
-        type: actions.changeUrlsArray,
-        payload: parseFileContent(content),
-      });
+      dispatch(setUrls({ urls: parseFileContent(content) }));
+      dispatch(clearJson());
     };
 
     reader.readAsText(file);
+  };
+
+  const handleDownloadFromStorage = () => {
+    dispatch(setUrls({ urls: getUrlsFromLocalStorage() }));
+    dispatch(clearJson());
   };
 
   return (
@@ -41,19 +55,19 @@ export const ButtonsComponent = ({ dispatch }) => {
       </button>
       <button
         className="btn btn-light w-100"
-        onClick={() => dispatch({ type: actions.fetchUrlsFromLocalStorage })}
+        onClick={handleDownloadFromStorage}
       >
         Загрузить
       </button>
       <button
         className="btn btn-light w-100"
-        onClick={() => dispatch({ type: actions.saveUrlsInLocalStorage })}
+        onClick={() => saveUrlsInLocalStorage(urls)}
       >
         Сохранить
       </button>
       <button
         className="btn btn-light w-100"
-        onClick={() => dispatch({ type: actions.countRowsAndColumns })}
+        onClick={() => dispatch(count(countRowsAndColumns(loadedJSON)))}
       >
         Рассчитать
       </button>

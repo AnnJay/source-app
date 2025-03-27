@@ -1,14 +1,17 @@
-import { actions } from "../../../utils/reducer";
+import { useDispatch, useSelector } from "react-redux";
 
-export const ElementComponent = ({ name, dispatch, index, currentUrlId }) => {
+import { changeCurrentUrl } from "../../../state/reducers/urlsSlice";
+
+export const ElementComponent = ({ name, index }) => {
+  const { currentURL_ID } = useSelector((state) => state.urls);
+  const dispatch = useDispatch();
+
   return (
     <li
       className={`list-group-item text-center ${
-        currentUrlId === index ? "list-group-item-success" : ""
+        currentURL_ID === index ? "list-group-item-success" : ""
       }`}
-      onClick={() =>
-        dispatch({ type: actions.changeCurrentURL_ID, payload: index })
-      }
+      onClick={() => dispatch(changeCurrentUrl({ id: index }))}
     >
       {name}
     </li>

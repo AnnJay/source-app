@@ -1,12 +1,15 @@
 import { useState } from "react";
+import { useSelector } from "react-redux";
 
 import { SourceModal } from "../../modals/SourceModal";
 import { DeleteModal } from "../../modals/DeleteModal";
 
-export const UrlButtons = ({ dispatch, currentUrl, currentUrlId }) => {
+export const UrlButtons = () => {
   const [openAddModal, setOpenAddModal] = useState(false);
   const [openEditModal, setOpenEditModal] = useState(false);
   const [openDeleteModal, setOpenDeleteModal] = useState(false);
+
+  const { urls, currentURL_ID } = useSelector((state) => state.urls);
 
   return (
     <div className="d-flex align-items-center justify-content-end gap-2">
@@ -18,7 +21,7 @@ export const UrlButtons = ({ dispatch, currentUrl, currentUrlId }) => {
       </button>
       <button
         className="btn text-dark btn-danger"
-        disabled={!currentUrl}
+        disabled={currentURL_ID < 0}
         onClick={() => setOpenDeleteModal(true)}
       >
         Удалить источник
@@ -26,34 +29,27 @@ export const UrlButtons = ({ dispatch, currentUrl, currentUrlId }) => {
       <button
         className="btn text-dark btn-warning"
         onClick={() => setOpenEditModal(true)}
-        disabled={!currentUrl}
+        disabled={currentURL_ID < 0}
       >
         Изменить источник
       </button>
 
-      {openAddModal && (
-        <SourceModal
-          onClose={() => setOpenAddModal(false)}
-          dispatch={dispatch}
-        />
-      )}
+      {openAddModal && <SourceModal onClose={() => setOpenAddModal(false)} />}
 
       {openEditModal && (
         <SourceModal
           onClose={() => setOpenEditModal(false)}
           isEdit
-          currentUrl={currentUrl}
-          dispatch={dispatch}
-          currentUrlId={currentUrlId}
+          currentUrl={urls[currentURL_ID]}
+          currentUrlId={currentURL_ID}
         />
       )}
 
       {openDeleteModal && (
         <DeleteModal
           onClose={() => setOpenDeleteModal(false)}
-          name={currentUrl.name}
-          dispatch={dispatch}
-          currentUrlId={currentUrlId}
+          name={urls[currentURL_ID].name}
+          currentUrlId={currentURL_ID}
         />
       )}
     </div>

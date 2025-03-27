@@ -1,42 +1,28 @@
 import { useEffect } from "react";
 
-import { actions } from "../../utils/reducer";
 import { InfoComponent } from "./info/InfoComponent";
 import { ListComponent } from "./list/ListComponent";
+import { useDispatch, useSelector } from "react-redux";
+import { clearJson, loadJSON } from "../../state/reducers/jsonSlice";
 
-export const BodyComponent = ({ appState, dispatch }) => {
+export const BodyComponent = () => {
+  const { urls, currentURL_ID } = useSelector((state) => state.urls);
+  const dispatch = useDispatch();
+
   useEffect(() => {
-    if (appState.currentURL_ID >= 0) {
-      const url = appState.urls[appState.currentURL_ID].url;
-
-      dispatch({ type: actions.startLoading });
-
-      fetch(url)
-        .then((response) => {
-          return response.json();
-        })
-        .then((data) => {
-          dispatch({ type: actions.changeLoadedJSON, payload: data });
-        })
-        .catch((error) => console.log(error));
+    if (currentURL_ID >= 0) {
+      dispatch(loadJSON(urls[currentURL_ID].url));
+      dispatch(clearJson());
     }
-  }, [appState.currentURL_ID]);
+  }, [currentURL_ID]);
 
   return (
     <div className="col-8 h-100 p-3 d-flex flex-column rounded-4 bg-primary">
       <h2 className="text-center fs-4 mb-4">Список источников данных</h2>
 
-      <ListComponent
-        urls={appState.urls}
-        dispatch={dispatch}
-        currentUrlId={appState.currentURL_ID}
-      />
+      <ListComponent />
 
-      <InfoComponent
-        loadedJSON={appState.loadedJSON}
-        countRows={appState.countRows}
-        countColumns={appState.countColumns}
-      />
+      <InfoComponent />
     </div>
   );
 };

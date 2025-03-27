@@ -1,8 +1,14 @@
-import { actions } from "../../utils/reducer";
+import { useDispatch } from "react-redux";
 
-export const DeleteModal = ({ onClose, dispatch, currentUrlId, name }) => {
+import { removeUrl } from "../../state/reducers/urlsSlice";
+import { clearJson } from "../../state/reducers/jsonSlice";
+
+export const DeleteModal = ({ onClose, currentUrlId, name }) => {
+  const dispatch = useDispatch();
+
   const handleDeleteSource = () => {
-    dispatch({ type: actions.deleteSource, payload: { index: currentUrlId } });
+    dispatch(removeUrl({ id: currentUrlId }));
+    dispatch(clearJson());
     onClose();
   };
 
