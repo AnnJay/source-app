@@ -14,6 +14,7 @@ const urlsSlice = createSlice({
     },
     setUrls(state, action) {
       state.urls = action.payload.urls;
+      state.currentURL_ID = -1;
     },
     addUrl(state, action) {
       state.urls.push(action.payload.url);
