@@ -37,7 +37,7 @@ export const loadJSON = createAsyncThunk("json/loadJSON", async (url) => {
 
     return { loadedJSON: data };
   } catch (error) {
-    console.error(error);
+    console.log(error);
   }
 });
 
