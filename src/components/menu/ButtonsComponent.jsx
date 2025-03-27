@@ -32,24 +32,27 @@ export const ButtonsComponent = ({ dispatch }) => {
   };
 
   return (
-    <div>
-      <button className="button" onClick={() => inputFileRef.current.click()}>
+    <div className="d-flex flex-column gap-2">
+      <button
+        className="btn btn-light w-100"
+        onClick={() => inputFileRef.current.click()}
+      >
         Загрузить из файла
       </button>
       <button
-        className="button"
+        className="btn btn-light w-100"
         onClick={() => dispatch({ type: actions.fetchUrlsFromLocalStorage })}
       >
         Загрузить
       </button>
       <button
-        className="button"
+        className="btn btn-light w-100"
         onClick={() => dispatch({ type: actions.saveUrlsInLocalStorage })}
       >
         Сохранить
       </button>
       <button
-        className="button"
+        className="btn btn-light w-100"
         onClick={() => dispatch({ type: actions.countRowsAndColumns })}
       >
         Рассчитать
@@ -57,7 +60,7 @@ export const ButtonsComponent = ({ dispatch }) => {
 
       <input
         type="file"
-        className="hidden"
+        className="d-none"
         onChange={handleFileUpload}
         ref={inputFileRef}
       />

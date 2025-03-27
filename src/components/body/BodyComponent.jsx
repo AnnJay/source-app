@@ -4,8 +4,6 @@ import { actions } from "../../utils/reducer";
 import { InfoComponent } from "./info/InfoComponent";
 import { ListComponent } from "./list/ListComponent";
 
-import "./body.css";
-
 export const BodyComponent = ({ appState, dispatch }) => {
   useEffect(() => {
     if (appState.currentURL_ID >= 0) {
@@ -25,8 +23,8 @@ export const BodyComponent = ({ appState, dispatch }) => {
   }, [appState.currentURL_ID]);
 
   return (
-    <div className="body-container">
-      <h2 className="body-title">Список источников данных</h2>
+    <div className="col-8 h-100 p-3 d-flex flex-column rounded-4 bg-primary">
+      <h2 className="text-center fs-4 mb-4">Список источников данных</h2>
 
       <ListComponent
         urls={appState.urls}

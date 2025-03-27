@@ -9,22 +9,22 @@ export const UrlButtons = ({ dispatch, currentUrl, currentUrlId }) => {
   const [openDeleteModal, setOpenDeleteModal] = useState(false);
 
   return (
-    <div className="url-component-container">
+    <div className="d-flex align-items-center justify-content-end gap-2">
       <button
-        className="button text-dark button--success"
+        className="btn text-dark btn-success"
         onClick={() => setOpenAddModal(true)}
       >
         Добавить источник
       </button>
       <button
-        className="button text-dark button--danger"
+        className="btn text-dark btn-danger"
         disabled={!currentUrl}
         onClick={() => setOpenDeleteModal(true)}
       >
         Удалить источник
       </button>
       <button
-        className="button text-dark button--warning"
+        className="btn text-dark btn-warning"
         onClick={() => setOpenEditModal(true)}
         disabled={!currentUrl}
       >

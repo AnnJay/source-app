@@ -1,9 +1,9 @@
 export const CountColumnComponent = ({ countColumns }) => {
   return (
-    <div className="info-row">
-      <p className="info-row-title text-primary ">Количество полей</p>
+    <div className="d-flex justify-content-between">
+      <p className="fs-5 fw-500 text-light w-75 mb-0">Количество полей</p>
       <input
-        className="info-row-number"
+        className="form-control w-25"
         type="text"
         readOnly
         value={countColumns}

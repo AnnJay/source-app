@@ -6,7 +6,10 @@ export const ElementsContainerComponent = ({
   currentUrlId,
 }) => {
   return (
-    <ul className="list">
+    <ul
+      className="list-group overflow-auto rounded-2 mb-4 bg-light"
+      style={{ height: "160px" }}
+    >
       {urls.map((url, i) => (
         <ElementComponent
           name={url.name}

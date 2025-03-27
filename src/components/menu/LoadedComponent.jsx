@@ -1,6 +1,6 @@
 export const LoadedComponent = ({ statusLoadedJSON }) => {
   return (
-    <div className="loader-container text-primary ">
+    <div className="text-center text-uppercase fs-6 fw-medium text-dark">
       {statusLoadedJSON ? "Данные загружены" : ""}
     </div>
   );

@@ -4,7 +4,7 @@ import { UrlComponent } from "./UrlComponent";
 
 export const ListComponent = ({ urls, dispatch, currentUrlId }) => {
   return (
-    <div className="list-container">
+    <div className="h-50">
       <UrlComponent urlItem={urls[currentUrlId]} />
 
       <ElementsContainerComponent

@@ -1,13 +1,11 @@
 import { ButtonsComponent } from "./ButtonsComponent";
 import { LoadedComponent } from "./LoadedComponent";
 
-import "./menu.css";
-
 export const MenuComponent = ({ dispatch, statusLoadedJSON }) => {
   return (
-    <div className="menu-container">
+    <div className="h-100 col-3 p-3 d-flex flex-column justify-content-between bg-primary rounded-4">
       <div>
-        <h2 className="menu-title">Меню</h2>
+        <h2 className="mb-4 fs-5 text-center text-uppercase">Меню</h2>
         <ButtonsComponent dispatch={dispatch} />
       </div>
 
