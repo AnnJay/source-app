@@ -4,7 +4,7 @@ import { UrlComponent } from "./UrlComponent";
 
 export const ListComponent = () => {
   return (
-    <div className="h-50">
+    <div style={{ height: "350px" }}>
       <UrlComponent />
 
       <ElementsContainerComponent />

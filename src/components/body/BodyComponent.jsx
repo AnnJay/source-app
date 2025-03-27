@@ -17,7 +17,7 @@ export const BodyComponent = () => {
   }, [currentURL_ID]);
 
   return (
-    <div className="col-8 h-100 p-3 d-flex flex-column rounded-4 bg-primary">
+    <div className="col-8 h-100 p-3 d-flex flex-column rounded-4 bg-primary overflow-hidden">
       <h2 className="text-center fs-4 mb-4">Список источников данных</h2>
 
       <ListComponent />
