@@ -1,0 +1,8 @@
+Источник 1:  https://mdn.github.io/learning-area/javascript/oojs/json/superheroes.json  
+Источник 2:  https://filesamples.com/samples/code/json/sample4.json  
+Источник 3:  https://jsonplaceholder.typicode.com/photos   
+Пивоварни :  https://api.openbrewerydb.org/breweries
+Рандомные шутки:  https://official-joke-api.appspot.com/random_ten
+Учебные заведения Канады:  http://universities.hipolabs.com/search?country=Canada
+Список стран:  https://restcountries.com/v3.1/all
+Сериалы: https://api.tvmaze.com/search/shows?q=breaking+bad 	
